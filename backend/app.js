@@ -1,7 +1,8 @@
 //Imports
 import express from "express";
 import cookieParser from "cookie-parser";
-import doctorsController from "./src/controllers/doctorsController.js";
+import doctorsRoutes from "./src/routes/doctors";
+import registerDocRoutes from "./src/routes/registerDoctors.js";
 
 //Express
 const app = express();
@@ -12,11 +13,11 @@ app.use(express.json());
 //Cookies
 app.use(cookieParser());
 
-//Clients Routes
-app.use("/api/doctors", doctorsController);
-
-
 //Doctors Routes
+app.use("/api/doctors", doctorsRoutes);
+app.use("/api/registerDoctors", registerDocRoutes);
+
+//Patients Routes
 
 
 //Appointments Routes
